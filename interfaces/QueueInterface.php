@@ -1,24 +1,27 @@
 <?php
+
 /**
  * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\queue;
+namespace yii\queue\interfaces;
 
 /**
- * Exception
+ * QueueInterface
  *
  * @author Alexander Kochetov <creocoder@gmail.com>
  */
-class Exception extends \yii\base\Exception
+interface QueueInterface
 {
-    /**
-     * @inheritdoc
-     */
-    public function getName()
-    {
-        return 'Queue Exception';
-    }
+
+	/**
+	 * Get channel object
+	 *
+	 * @param string $name
+	 */
+	public function getChannel($name);
+	
+	
 }
