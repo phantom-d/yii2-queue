@@ -20,11 +20,9 @@ class QueueAbstract
 
 	public function getDriver()
 	{
-		if (is_array($this->driver)) {
+		if (\Yii::$app->has($this->driver)) {
 			return \Yii::createObject($this->driver);
-		} elseif (class_exists($this->driver)) {
-			return \Yii::createObject($this->driver);
-		} elseif (\Yii::$app->has($this->driver)) {
+		} elseif (is_array($this->driver) || class_exists($this->driver)) {
 			return \Yii::$app->get($this->driver);
 		}
 		throw new \yii\base\InvalidParamException();
